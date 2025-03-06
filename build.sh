@@ -57,7 +57,18 @@ CC=${BUILD_CC} \
 CLANG_TRIPLE=aarch64-linux-gnu- \
 LLVM=1 \
 LLVM_IAS=1 \
+AR=${HOME}/toolchains/neutron-clang/bin/llvm-ar \
+NM=${HOME}/toolchains/neutron-clang/bin/llvm-nm \
+LD=${HOME}/toolchains/neutron-clang/bin/ld.lld \
+STRIP=${HOME}/toolchains/neutron-clang/bin/llvm-strip \
+OBJCOPY=${HOME}/toolchains/neutron-clang/bin/llvm-objcopy \
+OBJDUMP=${HOME}/toolchains/neutron-clang/bin/llvm-objdump \
+READELF=${HOME}/toolchains/neutron-clang/bin/llvm-readelf \
+HOSTCC=${HOME}/toolchains/neutron-clang/bin/clang \
+HOSTCXX=${HOME}/toolchains/neutron-clang/bin/clang++ \
 "
+
+export LD_LIBRARY_PATH="${HOME}/toolchains/neutron-clang/lib:$LD_LIBRARY_PATH"
 
 #build kernel image
 build_kernel(){
