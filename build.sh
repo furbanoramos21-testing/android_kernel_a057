@@ -8,6 +8,14 @@ export ARCH=arm64
 export RDIR="$(pwd)"
 export KBUILD_BUILD_USER="@ravindu644"
 
+#dev
+if [ -z "$BUILD_KERNEL_VERSION" ]; then
+    export BUILD_KERNEL_VERSION="dev"
+fi
+
+#setting up localversion
+echo -e "CONFIG_LOCALVERSION_AUTO=n\nCONFIG_LOCALVERSION=\"-ravindu644-${BUILD_KERNEL_VERSION}\"\n" > "${RDIR}/arch/arm64/configs/version.config"
+
 #install requirements
 sudo apt install libarchive-tools zstd -y
 
@@ -73,7 +81,7 @@ export LD_LIBRARY_PATH="${HOME}/toolchains/neutron-clang/lib:$LD_LIBRARY_PATH"
 #build kernel image
 build_kernel(){
     cd "${RDIR}"
-    make ${ARGS} gki_defconfig custom.config
+    make ${ARGS} gki_defconfig custom.config version.config
     make ${ARGS} menuconfig
     make ${ARGS}|| exit 1
     cp ${RDIR}/out/arch/arm64/boot/Image* ${RDIR}/build
