@@ -96,4 +96,33 @@ build_kernel(){
     cp ${RDIR}/out/arch/arm64/boot/Image* ${RDIR}/build
 }
 
+build_boot(){
+    echo -e "\n[INFO] Building a signed boot image...\n"
+
+    #changed dir
+    cd "${RDIR}/prebuilts/Android_boot_image_editor"
+
+    #unpack
+    ./gradlew clean && ./gradlew unpack
+
+    #copy the build kernel and repack
+    cp ${RDIR}/build/Image build/unzip_boot/kernel && ./gradlew pack
+
+    #moving signed images
+    mv boot.img.signed "${RDIR}/build/boot.img" && mv vbmeta.img.signed "${RDIR}/build/vbmeta.img"
+
+    #back to kernel root
+    cd "${RDIR}"
+}
+
+build_tar(){
+    echo -e "\n[INFO] Creating an Odin flashable tar..\n"
+
+    cd "${RDIR}/build"
+    tar -cvf "KernelSU-Next-SM-A057F,SM-M145F-${BUILD_KERNEL_VERSION}.tar" boot.img vbmeta.img && rm boot.img vbmeta.img
+    echo -e "\n[INFO] Build Finished..!\n" && cd ${RDIR}
+}
+
 build_kernel
+build_boot || exit 1
+build_tar
