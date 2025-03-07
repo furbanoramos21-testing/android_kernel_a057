@@ -1,0 +1,2 @@
+2025-03-07 05:06:16,591 INFO [main] uiderrors [BootV3.kt:151] erase unparsable boot signature in header. Refer to https://github.com/cfig/Android_boot_image_editor/issues/88
+2025-03-07 05:06:17,252 INFO [main] uiderrors [BootV3.kt:200] ignore bootsig for v4 boot.img

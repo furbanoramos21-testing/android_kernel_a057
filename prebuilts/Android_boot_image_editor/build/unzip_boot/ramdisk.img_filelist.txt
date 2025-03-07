@@ -1,0 +1,13 @@
+{"name":"debug_ramdisk","statMode":16877,"ino":300000,"note":"DIR  40755"}
+{"name":"dev","statMode":16877,"ino":300001,"note":"DIR  40755"}
+{"name":"init","statMode":33256,"ino":300002,"note":"REG 100750"}
+{"name":"metadata","statMode":16877,"ino":300003,"note":"DIR  40755"}
+{"name":"mnt","statMode":16877,"ino":300004,"note":"DIR  40755"}
+{"name":"proc","statMode":16877,"ino":300005,"note":"DIR  40755"}
+{"name":"second_stage_resources","statMode":16877,"ino":300006,"note":"DIR  40755"}
+{"name":"sys","statMode":16877,"ino":300007,"note":"DIR  40755"}
+{"name":"system","statMode":16877,"ino":300008,"note":"DIR  40755"}
+{"name":"system/etc","statMode":16877,"ino":300009,"note":"DIR  40755"}
+{"name":"system/etc/ramdisk","statMode":16877,"ino":300010,"note":"DIR  40755"}
+{"name":"system/etc/ramdisk/build.prop","statMode":33188,"ino":300011,"note":"REG 100644"}
+{"name":"TRAILER!!!","statMode":493,"ino":0,"note":""}

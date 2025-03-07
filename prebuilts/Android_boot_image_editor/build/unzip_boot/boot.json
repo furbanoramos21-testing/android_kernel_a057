@@ -1,0 +1,31 @@
+{
+  "info" : {
+    "input" : "/workspace/gitpod/a05s_private/prebuilts/Android_boot_image_editor/boot.img",
+    "role" : "boot.img",
+    "json" : "boot.json",
+    "headerVersion" : 4,
+    "headerSize" : 1584,
+    "pageSize" : 4096,
+    "cmdline" : "",
+    "osVersion" : "13.0.0",
+    "osPatchLevel" : "2024-11-00",
+    "imageSize" : 100663296,
+    "signatureSize" : 0
+  },
+  "kernel" : {
+    "file" : "build/unzip_boot/kernel",
+    "position" : 4096,
+    "size" : 47774208
+  },
+  "ramdisk" : {
+    "file" : "build/unzip_boot/ramdisk.img.lz4",
+    "position" : 47779840,
+    "size" : 1741103,
+    "xzFlags" : null
+  },
+  "bootSignature" : {
+    "file" : "",
+    "position" : 0,
+    "size" : 0
+  }
+}
