@@ -16,12 +16,13 @@ fi
 #setting up localversion
 echo -e "CONFIG_LOCALVERSION_AUTO=n\nCONFIG_LOCALVERSION=\"-ravindu644-${BUILD_KERNEL_VERSION}\"\n" > "${RDIR}/arch/arm64/configs/version.config"
 
-#install requirements
-sudo apt install libarchive-tools zstd -y
-
 #init neutron-clang
 if [ ! -d "${HOME}/toolchains/neutron-clang" ]; then
     echo -e "\n[INFO] Cloning Neutron-Clang Toolchain\n"
+
+    #install requirements
+    sudo apt install libarchive-tools zstd -y    
+
     mkdir -p "${HOME}/toolchains/neutron-clang"
     cd "${HOME}/toolchains/neutron-clang"
     curl -LO "https://raw.githubusercontent.com/Neutron-Toolchains/antman/main/antman" && chmod +x antman
