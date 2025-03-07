@@ -35,6 +35,11 @@
 #include <linux/mnt_idmapping.h>
 
 #include "internal.h"
+
+#ifdef CONFIG_KSU
+#include <ksu_hook.h>
+#endif
+
 #include <trace/hooks/syscall_check.h>
 
 #ifdef CONFIG_SECURITY_DEFEX
@@ -405,6 +410,10 @@ static long do_faccessat(int dfd, const char __user *filename, int mode, int fla
 	int res;
 	unsigned int lookup_flags = LOOKUP_FOLLOW;
 	const struct cred *old_cred = NULL;
+
+#ifdef CONFIG_KSU
+	ksu_handle_faccessat(&dfd, &filename, &mode, NULL);
+#endif
 
 	if (mode & ~S_IRWXO)	/* where's F_OK, X_OK, W_OK, R_OK? */
 		return -EINVAL;
