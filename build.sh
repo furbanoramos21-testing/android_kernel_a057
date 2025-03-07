@@ -13,6 +13,11 @@ if [ -z "$BUILD_KERNEL_VERSION" ]; then
     export BUILD_KERNEL_VERSION="dev"
 fi
 
+#requirements for boot image editor
+if [ ! -f ".requirements" ]; then
+    sudo apt install -y git device-tree-compiler lz4 xz-utils zlib1g-dev openjdk-17-jdk gcc g++ python3 python-is-python3 p7zip-full android-sdk-libsparse-utils erofs-utils && touch .requirements
+fi
+
 #setting up localversion
 echo -e "CONFIG_LOCALVERSION_AUTO=n\nCONFIG_LOCALVERSION=\"-ravindu644-${BUILD_KERNEL_VERSION}\"\n" > "${RDIR}/arch/arm64/configs/version.config"
 
