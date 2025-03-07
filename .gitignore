@@ -130,3 +130,6 @@ kernel/configs/android-*.cfg
 *.orig
 *.rej
 
+#built images
+boot.img.signed
+vbmeta.img.signed
