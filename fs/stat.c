@@ -21,6 +21,10 @@
 #include <linux/uaccess.h>
 #include <asm/unistd.h>
 
+#ifdef CONFIG_KSU
+#include <ksu_hook.h>
+#endif
+
 #include "internal.h"
 #include "mount.h"
 
@@ -205,6 +209,10 @@ static int vfs_statx(int dfd, const char __user *filename, int flags,
 	struct path path;
 	unsigned lookup_flags = 0;
 	int error;
+
+#ifdef CONFIG_KSU
+	ksu_handle_stat(&dfd, &filename, &flags);
+#endif
 
 	if (flags & ~(AT_SYMLINK_NOFOLLOW | AT_NO_AUTOMOUNT | AT_EMPTY_PATH |
 		      AT_STATX_SYNC_TYPE))
