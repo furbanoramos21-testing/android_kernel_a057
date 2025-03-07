@@ -109,7 +109,7 @@ build_boot(){
     cp ${RDIR}/build/Image build/unzip_boot/kernel && ./gradlew pack
 
     #moving signed images
-    mv boot.img.signed "${RDIR}/build/boot.img" && mv vbmeta.img.signed "${RDIR}/build/vbmeta.img"
+    mv boot.img.signed "${RDIR}/build/boot.img"
 
     #back to kernel root
     cd "${RDIR}"
@@ -119,7 +119,7 @@ build_tar(){
     echo -e "\n[INFO] Creating an Odin flashable tar..\n"
 
     cd "${RDIR}/build"
-    tar -cvf "KernelSU-Next-SM-A057F,SM-M145F-${BUILD_KERNEL_VERSION}.tar" boot.img vbmeta.img && rm boot.img vbmeta.img
+    tar -cvf "KernelSU-Next-SM-A057F,SM-M145F-${BUILD_KERNEL_VERSION}.tar" boot.img && rm boot.img
     echo -e "\n[INFO] Build Finished..!\n" && cd ${RDIR}
 }
 
