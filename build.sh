@@ -119,7 +119,7 @@ build_tar(){
     echo -e "\n[INFO] Creating an Odin flashable tar..\n"
 
     cd "${RDIR}/build"
-    tar -cvf "KernelSU-Next-SM-A057F,SM-M145F-${BUILD_KERNEL_VERSION}.tar" boot.img && rm boot.img
+    tar -cvf "KernelSU-Next-SM-A057F-${BUILD_KERNEL_VERSION}.tar" boot.img && rm boot.img
     echo -e "\n[INFO] Build Finished..!\n" && cd ${RDIR}
 }
 
