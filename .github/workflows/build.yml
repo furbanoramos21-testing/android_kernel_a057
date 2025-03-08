@@ -40,7 +40,7 @@ jobs:
     - name: Create release
       uses: ncipollo/release-action@v1
       with:
-        tag: ${{ github.event.inputs.tag }}
+        tag: ${{ github.event.inputs.tag }}-a05s
         name: "KernelSU-Next-SM-A057F-${{ github.event.inputs.tag }}"
         draft: false
         prerelease: false
