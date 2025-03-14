@@ -120,7 +120,7 @@ static int __init enforcing_setup(char *str)
 	#ifdef CONFIG_SECURITY_SELINUX_ALWAYS_ENFORCE
 		selinux_enforcing_boot = enforcing ? 1 : 0;
 	#elif defined(CONFIG_SECURITY_SELINUX_ALWAYS_PERMISSIVE)
- 		selinux_enforcing = 0;
+ 		selinux_enforcing_boot = 0;
  	#endif
 
 	return 1;
