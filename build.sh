@@ -90,7 +90,7 @@ export LD_LIBRARY_PATH="${HOME}/toolchains/neutron-clang/lib:$LD_LIBRARY_PATH"
 #build kernel image
 build_kernel(){
     cd "${RDIR}"
-    make ${ARGS} gki_defconfig custom.config version.config
+    make ${ARGS} gki_defconfig custom.config version.config ubuntu.config
     make ${ARGS} menuconfig
     make ${ARGS}|| exit 1
     cp ${RDIR}/out/arch/arm64/boot/Image* ${RDIR}/build
